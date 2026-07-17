@@ -1,0 +1,5 @@
+{
+  "desc": "杯中事页面索引配置",
+  "rules": [{ "action": "disallow", "page": "*" }]
+}
+

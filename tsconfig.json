@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "types": ["miniprogram-api-typings", "vitest/globals"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["miniprogram/*"]
+    }
+  },
+  "include": ["miniprogram/**/*.ts", "tests/**/*.ts", "vitest.config.ts"]
+}
+
