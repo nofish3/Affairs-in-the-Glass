@@ -34,15 +34,15 @@
   position: relative;
   min-height: 520rpx;
   flex: 1;
-  margin: -12rpx -40rpx 8rpx;
+  margin: -12rpx -40rpx 0;
   overflow: hidden;
 }
 
 .hero-image {
   position: absolute;
-  top: 0;
-  right: -8rpx;
-  width: 680rpx;
+  bottom: 0;
+  left: 0;
+  width: 750rpx;
   height: auto;
 }
 
