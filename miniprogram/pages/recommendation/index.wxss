@@ -6,23 +6,11 @@
   text-align: center;
 }
 
-.glass-emblem {
-  position: relative;
-  width: 86rpx;
-  height: 74rpx;
-  margin: 0 auto 24rpx;
-  border: 3rpx solid var(--green-primary);
-  border-radius: 8rpx 8rpx 34rpx 34rpx;
-}
-
-.glass-liquid {
-  position: absolute;
-  right: 5rpx;
-  bottom: 5rpx;
-  left: 5rpx;
-  height: 32rpx;
-  border-radius: 0 0 24rpx 24rpx;
-  background: var(--wine-accent);
+.recommendation-hero {
+  display: block;
+  width: 440rpx;
+  height: auto;
+  margin: 0 auto 12rpx;
 }
 
 .drink-kicker {
@@ -79,6 +67,7 @@
 .profile-row {
   display: flex;
   min-height: 70rpx;
+  padding-top: 18rpx;
   align-items: flex-start;
   justify-content: space-between;
   gap: 32rpx;
@@ -88,7 +77,6 @@
   line-height: 1.6;
 }
 
-.profile-row + .profile-row { padding-top: 18rpx; }
 .profile-value { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8rpx 20rpx; color: var(--ink-primary); text-align: right; }
 
 .ingredient-list { display: flex; flex-wrap: wrap; gap: 16rpx 28rpx; font-size: 28rpx; line-height: 1.6; }
@@ -100,6 +88,20 @@
   font-family: "Songti SC", "STSong", serif;
   font-size: 32rpx;
   line-height: 1.9;
+}
+
+.recommendation-actions .fixed-action-row {
+  display: flex;
+  width: 100%;
+  gap: 16rpx;
+}
+.recommendation-actions .primary-button,
+.recommendation-actions .secondary-button {
+  width: 0;
+  min-width: 0;
+  flex: 1 1 0;
+  min-height: 82rpx;
+  font-size: 26rpx;
 }
 
 .sheet-mask {
@@ -123,4 +125,3 @@
 .sheet-title { font-family: "Songti SC", "STSong", serif; font-size: 40rpx; font-weight: 600; }
 .sheet-copy { margin: 18rpx 0 32rpx; color: var(--ink-secondary); font-size: 26rpx; line-height: 1.65; }
 .sheet-quiet-button { width: 100%; min-height: 88rpx; margin-top: 12rpx; background: transparent; color: var(--green-primary); font-size: 28rpx; }
-

@@ -1,7 +1,7 @@
 <view class="page records-page enter">
   <view class="records-header">
     <view>
-      <view class="page-title">记一杯</view>
+      <view class="page-title">这些你还记得吗</view>
       <view class="page-lead">酒名、配料和一点当时的感受。</view>
     </view>
     <button class="add-button" bindtap="addRecord" aria-label="新增记录">＋</button>
@@ -30,4 +30,3 @@
 
   <view class="storage-note">记录只保存在当前设备。清理缓存或更换手机后可能丢失。</view>
 </view>
-

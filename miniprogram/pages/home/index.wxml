@@ -14,7 +14,7 @@
       <view class="entry-number">01</view>
       <view class="entry-copy">
         <view class="entry-title">选一杯</view>
-        <view class="entry-subtitle">从今晚想要的味道出发</view>
+        <view class="entry-subtitle">今晚想喝什么口味</view>
       </view>
       <view class="entry-arrow">→</view>
     </button>
@@ -22,7 +22,7 @@
       <view class="entry-number">02</view>
       <view class="entry-copy">
         <view class="entry-title">识一杯</view>
-        <view class="entry-subtitle">看懂酒名与杯中配料</view>
+        <view class="entry-subtitle">这一杯是什么味道</view>
       </view>
       <view class="entry-arrow">→</view>
     </button>
@@ -30,7 +30,7 @@
       <view class="entry-number">03</view>
       <view class="entry-copy">
         <view class="entry-title">记一杯</view>
-        <view class="entry-subtitle">留下一点当时的味道</view>
+        <view class="entry-subtitle">留下这一刻的感觉</view>
       </view>
       <view class="entry-arrow">→</view>
     </button>

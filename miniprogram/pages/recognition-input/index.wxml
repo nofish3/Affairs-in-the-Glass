@@ -1,5 +1,5 @@
 <view class="page page-with-action recognition-input enter">
-  <view class="page-title">识一杯</view>
+  <view class="page-title">这杯酒是什么味道</view>
   <view class="page-lead">知道酒名就写酒名；只看到配料，也可以只填配料。</view>
 
   <view class="search-illustration" aria-hidden="true">

@@ -4,7 +4,7 @@
 
   <view class="section taste-section">
     <view class="section-title">味道</view>
-    <view class="section-note">没有选择的味道，不参与这次推荐。</view>
+    <view class="section-note">选最想喝到的味道，可以只选一种。</view>
     <view class="taste-row" wx:for="{{tasteOptions}}" wx:key="key">
       <view class="taste-name">{{item.label}}</view>
       <button wx:for="{{levels}}" wx:for-item="level" wx:key="value"
@@ -16,6 +16,7 @@
 
   <view class="section">
     <view class="section-title">香气</view>
+    <view class="section-note">选一种让你想靠近的香气。</view>
     <view class="selector-row">
       <button wx:for="{{aromas}}" wx:key="value" class="selector-option {{item.value === 'random' ? 'selector-option-random' : ''}} {{preference.aroma === item.value ? 'is-selected' : ''}}"
         data-value="{{item.value}}" bindtap="selectAroma">{{item.label}}</button>
@@ -24,6 +25,7 @@
 
   <view class="section">
     <view class="section-title">酒感</view>
+    <view class="section-note">选你想要的酒精存在感</view>
     <view class="selector-row">
       <button wx:for="{{alcoholOptions}}" wx:key="value" class="selector-option {{item.value === 'random' ? 'selector-option-random' : ''}} {{preference.alcoholFeeling === item.value ? 'is-selected' : ''}}"
         data-value="{{item.value}}" bindtap="selectAlcohol">{{item.label}}</button>
@@ -32,6 +34,7 @@
 
   <view class="section">
     <view class="section-title">口感</view>
+    <view class="section-note">选你想要的入口感觉。</view>
     <view class="selector-row">
       <button wx:for="{{textures}}" wx:key="value" class="selector-option {{item.value === 'random' ? 'selector-option-random' : ''}} {{preference.texture === item.value ? 'is-selected' : ''}}"
         data-value="{{item.value}}" bindtap="selectTexture">{{item.label}}</button>
