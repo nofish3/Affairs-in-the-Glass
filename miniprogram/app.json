@@ -16,7 +16,6 @@
     "navigationBarTitleText": "杯中事"
   },
   "style": "v2",
-  "sitemapLocation": "../sitemap.json",
+  "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents"
 }
-

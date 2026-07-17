@@ -7,4 +7,4 @@ miniprogram_npm/
 .idea/
 .vscode/
 project.private.config.json
-
+.playwright-cli/

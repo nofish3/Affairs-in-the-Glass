@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { COCKTAILS } from '../../miniprogram/data/cocktails';
 import { INGREDIENTS } from '../../miniprogram/data/ingredients';
 import { RECIPE_SOURCE_BY_COCKTAIL_ID } from '../../miniprogram/data/recipe-sources';
+import { IBA_INGREDIENT_AUDIT } from '../../miniprogram/data/iba-ingredient-audit';
 import { TASTE_KEYS } from '../../miniprogram/types/domain';
 import { buildAliasIndex, findAliasConflicts } from '../../miniprogram/services/recognition-service';
 
@@ -10,6 +11,19 @@ describe('cocktail data quality', () => {
     const enabled = COCKTAILS.filter((item) => item.enabled);
     expect(enabled).toHaveLength(40);
     enabled.forEach((item) => expect(RECIPE_SOURCE_BY_COCKTAIL_ID.has(item.id)).toBe(true));
+  });
+
+  it('matches the reviewed IBA principal ingredient audit', () => {
+    const enabled = COCKTAILS.filter((item) => item.enabled);
+    expect(Object.keys(IBA_INGREDIENT_AUDIT)).toHaveLength(enabled.length);
+    const mismatches = enabled
+      .filter((cocktail) => JSON.stringify(cocktail.ingredientIds) !== JSON.stringify(IBA_INGREDIENT_AUDIT[cocktail.id]))
+      .map((cocktail) => ({
+        cocktailId: cocktail.id,
+        actual: cocktail.ingredientIds,
+        expected: IBA_INGREDIENT_AUDIT[cocktail.id]
+      }));
+    expect(mismatches).toEqual([]);
   });
 
   it('uses unique ids and valid ingredient references', () => {
@@ -39,4 +53,3 @@ describe('cocktail data quality', () => {
     expect(findAliasConflicts(index)).toEqual([]);
   });
 });
-
