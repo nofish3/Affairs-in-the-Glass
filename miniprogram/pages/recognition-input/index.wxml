@@ -1,0 +1,29 @@
+<view class="page page-with-action recognition-input enter">
+  <view class="page-title">识一杯</view>
+  <view class="page-lead">写下酒名，或把酒单上看见的主要配料放在一起。</view>
+
+  <view class="search-illustration" aria-hidden="true">
+    <view class="search-glass"><view class="search-liquid"></view></view>
+    <view class="search-line search-line-a"></view>
+    <view class="search-line search-line-b"></view>
+  </view>
+
+  <view class="input-section">
+    <textarea class="text-area recognition-area" value="{{input}}" maxlength="500"
+      placeholder="输入酒名、英文名或主要配料" placeholder-class="field-placeholder"
+      auto-height="false" bindinput="onInput" aria-label="酒名或配料"></textarea>
+    <view class="input-meta">
+      <text>尼格罗尼</text>
+      <text>或</text>
+      <text>威士忌、青柠、蜂蜜</text>
+    </view>
+    <view wx:if="{{error}}" class="field-error">{{error}}</view>
+  </view>
+
+  <view class="quiet-notice recognition-notice">已收录酒款会优先按酒名解释；没有识别到酒名时，再分析配料组合。</view>
+</view>
+
+<view class="fixed-action">
+  <button class="primary-button" loading="{{submitting}}" hover-class="button-hover" bindtap="submit">看看它的味道</button>
+</view>
+

@@ -1,0 +1,51 @@
+<view class="home page enter">
+  <view class="home-header">
+    <view class="brand-mark">杯中事</view>
+    <view class="brand-rule"></view>
+    <view class="brand-copy">今晚，喝点什么。</view>
+  </view>
+
+  <view class="hero-still-life" aria-hidden="true">
+    <view class="hero-sun"></view>
+    <view class="hero-glass">
+      <view class="hero-drink"></view>
+      <view class="hero-ice hero-ice-a"></view>
+      <view class="hero-ice hero-ice-b"></view>
+      <view class="hero-peel"></view>
+    </view>
+    <view class="hero-stem"></view>
+    <view class="hero-leaf hero-leaf-a"></view>
+    <view class="hero-leaf hero-leaf-b"></view>
+    <view class="hero-shadow"></view>
+  </view>
+
+  <view class="entry-list" aria-label="主要功能">
+    <button class="entry-item" hover-class="entry-hover" bindtap="goPreference">
+      <view class="entry-number">01</view>
+      <view class="entry-copy">
+        <view class="entry-title">选一杯</view>
+        <view class="entry-subtitle">从今晚想要的味道出发</view>
+      </view>
+      <view class="entry-arrow">→</view>
+    </button>
+    <button class="entry-item" hover-class="entry-hover" bindtap="goRecognition">
+      <view class="entry-number">02</view>
+      <view class="entry-copy">
+        <view class="entry-title">识一杯</view>
+        <view class="entry-subtitle">看懂酒名与杯中配料</view>
+      </view>
+      <view class="entry-arrow">→</view>
+    </button>
+    <button class="entry-item" hover-class="entry-hover" bindtap="goRecords">
+      <view class="entry-number">03</view>
+      <view class="entry-copy">
+        <view class="entry-title">记一杯</view>
+        <view class="entry-subtitle">留下一点当时的味道</view>
+      </view>
+      <view class="entry-arrow">→</view>
+    </button>
+  </view>
+
+  <view class="responsible-note">理性饮酒 · 未成年人请勿饮酒</view>
+</view>
+

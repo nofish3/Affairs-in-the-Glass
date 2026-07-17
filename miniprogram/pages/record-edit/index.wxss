@@ -1,0 +1,9 @@
+.form-section { margin-top: 56rpx; border-top: 2rpx solid var(--ink-primary); }
+.form-field { display: block; padding: 36rpx 0 42rpx; border-bottom: 1rpx solid var(--line-default); }
+.ingredients-area { min-height: 190rpx; }
+.feeling-area { min-height: 300rpx; }
+.form-error { margin-top: 24rpx; }
+.delete-link { display: flex; width: auto; min-height: 88rpx; margin: 52rpx auto 0; align-items: center; justify-content: center; gap: 12rpx; background: transparent; color: var(--error); font-size: 28rpx; }
+.delete-icon { display: flex; width: 40rpx; height: 40rpx; align-items: center; justify-content: center; border: 2rpx solid currentColor; border-radius: 50%; font-size: 30rpx; line-height: 1; }
+.storage-note { margin-top: 32rpx; color: var(--ink-secondary); font-size: 21rpx; text-align: center; }
+

@@ -1,0 +1,51 @@
+<view class="page page-with-action enter">
+  <view class="page-title">今晚想喝点什么</view>
+  <view class="page-lead">先挑至少一种在意的味道，再选香气、酒感和口感。</view>
+
+  <view class="section taste-section">
+    <view class="section-title">味道</view>
+    <view class="section-note">没有选择的味道，不参与这次推荐。</view>
+    <view class="taste-head"><text></text><text>低</text><text>中</text><text>高</text></view>
+    <view class="taste-row" wx:for="{{tasteOptions}}" wx:key="key">
+      <view class="taste-name">{{item.label}}</view>
+      <button wx:for="{{levels}}" wx:for-item="level" wx:key="value"
+        class="taste-level {{preference.tastes[item.key] === level.value ? 'is-selected' : ''}}"
+        data-key="{{item.key}}" data-level="{{level.value}}" bindtap="selectTaste"
+        aria-label="{{item.label}}{{level.label}}">{{level.label}}</button>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">香气</view>
+    <view class="choice-grid">
+      <view class="choice-wrap" wx:for="{{aromas}}" wx:key="value">
+        <button class="choice {{preference.aroma === item.value ? 'is-selected' : ''}}"
+          data-value="{{item.value}}" bindtap="selectAroma">{{item.label}}<text wx:if="{{preference.aroma === item.value}}" class="check">✓</text></button>
+        <button wx:if="{{item.value === 'woody' || item.value === 'spiced'}}" class="info-button"
+          data-value="{{item.value}}" bindtap="showAromaHelp" aria-label="解释{{item.label}}">?</button>
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">酒感</view>
+    <view class="choice-grid choice-grid-four">
+      <button wx:for="{{alcoholOptions}}" wx:key="value" class="choice {{preference.alcoholFeeling === item.value ? 'is-selected' : ''}}"
+        data-value="{{item.value}}" bindtap="selectAlcohol">{{item.label}}<text wx:if="{{preference.alcoholFeeling === item.value}}" class="check">✓</text></button>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">口感</view>
+    <view class="choice-grid choice-grid-four">
+      <button wx:for="{{textures}}" wx:key="value" class="choice {{preference.texture === item.value ? 'is-selected' : ''}}"
+        data-value="{{item.value}}" bindtap="selectTexture">{{item.label}}<text wx:if="{{preference.texture === item.value}}" class="check">✓</text></button>
+    </view>
+  </view>
+
+  <view wx:if="{{errors.length}}" class="field-error validation-summary">{{errorText}}</view>
+</view>
+
+<view class="fixed-action">
+  <button class="primary-button" disabled="{{!valid}}" hover-class="button-hover" bindtap="submit">选一杯</button>
+</view>

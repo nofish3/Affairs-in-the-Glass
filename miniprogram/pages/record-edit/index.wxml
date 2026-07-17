@@ -1,0 +1,39 @@
+<view class="page page-with-action record-edit enter">
+  <view class="page-title">{{editing ? '编辑记录' : '记一杯'}}</view>
+  <view class="page-lead">酒名和配料至少写一项，感受可以留空。</view>
+
+  <view class="form-section">
+    <label class="form-field">
+      <text class="field-label">酒名</text>
+      <input class="text-input" value="{{drinkName}}" maxlength="80" placeholder="记得酒名就写在这里"
+        placeholder-class="field-placeholder" bindinput="onNameInput" />
+    </label>
+
+    <label class="form-field">
+      <text class="field-label">配料</text>
+      <textarea class="text-area ingredients-area" value="{{ingredientsText}}" maxlength="500"
+        placeholder="不知道酒名，也可以只记配料" placeholder-class="field-placeholder"
+        bindinput="onIngredientsInput"></textarea>
+    </label>
+
+    <label class="form-field">
+      <text class="field-label">感受</text>
+      <textarea class="text-area feeling-area" value="{{feeling}}" maxlength="2000"
+        placeholder="这一杯喝起来怎么样" placeholder-class="field-placeholder"
+        bindinput="onFeelingInput"></textarea>
+    </label>
+  </view>
+
+  <view wx:if="{{error}}" class="field-error form-error">{{error}}</view>
+
+  <button wx:if="{{editing}}" class="delete-link" bindtap="remove" aria-label="删除记录">
+    <text class="delete-icon">×</text><text>删除这条记录</text>
+  </button>
+
+  <view class="storage-note">记录只保存在当前设备。</view>
+</view>
+
+<view class="fixed-action">
+  <button class="primary-button" loading="{{submitting}}" hover-class="button-hover" bindtap="save">保存</button>
+</view>
+

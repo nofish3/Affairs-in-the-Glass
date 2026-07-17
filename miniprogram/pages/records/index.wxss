@@ -1,0 +1,16 @@
+.records-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 24rpx; }
+.add-button { display: flex; width: 88rpx; height: 88rpx; flex: 0 0 88rpx; align-items: center; justify-content: center; border: 2rpx solid var(--green-primary); border-radius: 50%; background: transparent; color: var(--green-primary); font-size: 52rpx; font-weight: 300; line-height: 1; }
+.error-notice { margin-top: 32rpx; border-left-color: var(--error); }
+.record-list { margin-top: 56rpx; border-top: 2rpx solid var(--ink-primary); }
+.record-item { display: grid; width: 100%; min-height: 150rpx; grid-template-columns: 64rpx 1fr 36rpx; align-items: center; gap: 16rpx; border-bottom: 1rpx solid var(--line-default); background: transparent; color: var(--ink-primary); text-align: left; }
+.record-index { align-self: flex-start; padding-top: 34rpx; color: var(--wine-accent); font-family: Georgia, serif; font-size: 22rpx; }
+.record-content { min-width: 0; padding: 28rpx 0; }
+.record-title { overflow-wrap: anywhere; font-family: "Songti SC", "STSong", serif; font-size: 34rpx; font-weight: 600; line-height: 1.45; }
+.record-meta { margin-top: 8rpx; overflow: hidden; color: var(--ink-secondary); font-size: 24rpx; text-overflow: ellipsis; white-space: nowrap; }
+.record-feeling { margin-top: 12rpx; color: var(--ink-secondary); font-size: 25rpx; line-height: 1.6; }
+.record-arrow { color: var(--green-primary); font-size: 44rpx; text-align: right; }
+.notebook-mark { width: 140rpx; padding: 20rpx; border: 3rpx solid var(--green-primary); transform: rotate(-3deg); }
+.notebook-mark view { height: 2rpx; margin: 18rpx 0; background: var(--wine-accent); opacity: .65; }
+.empty-action { max-width: 360rpx; }
+.storage-note { margin-top: 56rpx; color: var(--ink-secondary); font-size: 21rpx; line-height: 1.6; text-align: center; }
+

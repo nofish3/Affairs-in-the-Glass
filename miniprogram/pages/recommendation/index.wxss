@@ -1,0 +1,126 @@
+.recommendation { transition: opacity 160ms ease, transform 160ms ease; }
+.is-changing { opacity: 0.55; transform: translateY(8rpx); }
+
+.drink-heading {
+  padding: 30rpx 0 48rpx;
+  text-align: center;
+}
+
+.glass-emblem {
+  position: relative;
+  width: 86rpx;
+  height: 74rpx;
+  margin: 0 auto 24rpx;
+  border: 3rpx solid var(--green-primary);
+  border-radius: 8rpx 8rpx 34rpx 34rpx;
+}
+
+.glass-liquid {
+  position: absolute;
+  right: 5rpx;
+  bottom: 5rpx;
+  left: 5rpx;
+  height: 32rpx;
+  border-radius: 0 0 24rpx 24rpx;
+  background: var(--wine-accent);
+}
+
+.drink-kicker {
+  color: var(--wine-accent);
+  font-size: 22rpx;
+}
+
+.drink-name {
+  margin-top: 12rpx;
+  font-family: "Songti SC", "STSong", serif;
+  font-size: 64rpx;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.drink-english {
+  margin-top: 8rpx;
+  color: var(--ink-secondary);
+  font-family: Georgia, serif;
+  font-size: 26rpx;
+}
+
+.drink-summary {
+  max-width: 580rpx;
+  margin: 30rpx auto 0;
+  font-size: 30rpx;
+  line-height: 1.75;
+}
+
+.result-tags { justify-content: center; }
+
+.reason-section { margin-top: 12rpx; }
+.relaxed-note { margin-bottom: 20rpx; color: var(--wine-accent); font-size: 24rpx; }
+
+.reason-line {
+  position: relative;
+  padding: 0 0 22rpx 30rpx;
+  color: var(--ink-primary);
+  font-size: 28rpx;
+  line-height: 1.7;
+}
+
+.reason-line::before {
+  position: absolute;
+  top: 17rpx;
+  left: 0;
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 50%;
+  background: var(--brass-accent);
+  content: "";
+}
+
+.profile-row {
+  display: flex;
+  min-height: 70rpx;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32rpx;
+  border-bottom: 1rpx solid rgba(185, 170, 143, 0.55);
+  color: var(--ink-secondary);
+  font-size: 26rpx;
+  line-height: 1.6;
+}
+
+.profile-row + .profile-row { padding-top: 18rpx; }
+.profile-value { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8rpx 20rpx; color: var(--ink-primary); text-align: right; }
+
+.ingredient-list { display: flex; flex-wrap: wrap; gap: 16rpx 28rpx; font-size: 28rpx; line-height: 1.6; }
+.ingredient-list text::before { margin-right: 10rpx; color: var(--wine-accent); content: "·"; }
+
+.feeling-copy {
+  padding-left: 28rpx;
+  border-left: 4rpx solid var(--wine-accent);
+  font-family: "Songti SC", "STSong", serif;
+  font-size: 32rpx;
+  line-height: 1.9;
+}
+
+.sheet-mask {
+  position: fixed;
+  z-index: 50;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  background: rgba(23, 51, 41, 0.42);
+}
+
+.change-sheet {
+  width: 100%;
+  padding: 24rpx 40rpx calc(32rpx + env(safe-area-inset-bottom));
+  border-radius: 16rpx 16rpx 0 0;
+  background: var(--paper-light);
+  text-align: center;
+}
+
+.sheet-rule { width: 64rpx; height: 6rpx; margin: 0 auto 32rpx; border-radius: 3rpx; background: var(--line-default); }
+.sheet-title { font-family: "Songti SC", "STSong", serif; font-size: 40rpx; font-weight: 600; }
+.sheet-copy { margin: 18rpx 0 32rpx; color: var(--ink-secondary); font-size: 26rpx; line-height: 1.65; }
+.sheet-quiet-button { width: 100%; min-height: 88rpx; margin-top: 12rpx; background: transparent; color: var(--green-primary); font-size: 28rpx; }
+

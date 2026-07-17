@@ -1,0 +1,53 @@
+.search-illustration {
+  position: relative;
+  height: 250rpx;
+  margin: 42rpx 0 28rpx;
+}
+
+.search-glass {
+  position: absolute;
+  right: 110rpx;
+  bottom: 20rpx;
+  width: 170rpx;
+  height: 200rpx;
+  overflow: hidden;
+  border: 4rpx solid var(--green-primary);
+  border-radius: 10rpx 10rpx 56rpx 56rpx;
+  transform: rotate(4deg);
+}
+
+.search-liquid {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 94rpx;
+  border-top: 3rpx solid var(--wine-accent);
+  background: rgba(164, 123, 61, 0.42);
+}
+
+.search-line {
+  position: absolute;
+  height: 3rpx;
+  background: var(--wine-accent);
+  transform-origin: left;
+}
+
+.search-line-a { left: 90rpx; bottom: 92rpx; width: 250rpx; transform: rotate(-18deg); }
+.search-line-b { left: 130rpx; bottom: 42rpx; width: 180rpx; transform: rotate(-9deg); opacity: 0.55; }
+
+.input-section { padding-top: 16rpx; }
+.recognition-area { height: 280rpx; }
+
+.input-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10rpx;
+  margin-top: 14rpx;
+  color: var(--ink-secondary);
+  font-size: 22rpx;
+}
+
+.input-meta text:nth-child(2) { color: var(--wine-accent); }
+.recognition-notice { margin-top: 50rpx; }
+

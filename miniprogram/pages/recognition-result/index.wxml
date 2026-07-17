@@ -1,0 +1,77 @@
+<view class="page recognition-result enter">
+  <block wx:if="{{resultType === 'cocktail' && cocktail}}">
+    <view class="result-kicker">酒款解析</view>
+    <view class="result-title">{{cocktail.name}}</view>
+    <view class="result-english">{{cocktail.englishName}}</view>
+    <view class="result-summary">{{cocktail.summary}}</view>
+
+    <view class="tag-list result-tag-list"><view class="tag" wx:for="{{cocktail.tags}}" wx:key="*this">{{item}}</view></view>
+
+    <view class="section">
+      <view class="section-title">风味</view>
+      <view class="profile-row"><text>味道</text><view class="profile-value"><text wx:for="{{cocktail.tasteRows}}" wx:key="key">{{item.label}} {{item.level}}</text></view></view>
+      <view class="profile-row"><text>香气</text><text class="profile-value">{{cocktail.aromaLabel}}</text></view>
+      <view class="profile-row"><text>酒感</text><text class="profile-value">{{cocktail.alcoholLabel}}</text></view>
+      <view class="profile-row"><text>口感</text><text class="profile-value">{{cocktail.textureLabel}}</text></view>
+    </view>
+
+    <view class="section">
+      <view class="section-title">主要配料</view>
+      <view class="ingredient-list"><text wx:for="{{cocktail.ingredientNames}}" wx:key="*this">{{item}}</text></view>
+      <view wx:if="{{extraIngredientNames.length}}" class="extra-line">输入中还识别到：{{extraIngredientNamesText}}</view>
+    </view>
+
+    <view class="section">
+      <view class="section-title">喝起来</view>
+      <view class="feeling-copy">{{cocktail.feeling}}</view>
+    </view>
+  </block>
+
+  <block wx:elif="{{resultType === 'ingredient-combination' && combination}}">
+    <view class="result-kicker">配料组合</view>
+    <view class="result-title compact-title">大概会是什么味道</view>
+    <view class="result-summary">{{combination.summary}}</view>
+
+    <view class="section">
+      <view class="section-title">识别到的材料</view>
+      <view class="tag-list"><view class="tag ingredient-tag" wx:for="{{combination.recognizedNames}}" wx:key="*this">{{item}}</view></view>
+    </view>
+
+    <view class="section">
+      <view class="section-title">整体判断</view>
+      <view class="profile-row"><text>味道</text><view class="profile-value"><text wx:for="{{combination.tasteRows}}" wx:key="key">{{item.label}} {{item.level}}</text></view></view>
+      <view class="profile-row"><text>香气</text><text class="profile-value">{{combination.aromaLabel}}</text></view>
+      <view class="profile-row"><text>酒感</text><text class="profile-value">{{combination.alcoholLabel}}</text></view>
+      <view class="profile-row"><text>口感</text><text class="profile-value">{{combination.textureLabel}}</text></view>
+    </view>
+
+    <view class="section role-section">
+      <view class="section-title">各自做了什么</view>
+      <view class="role-item" wx:for="{{combination.roles}}" wx:key="id">
+        <view class="role-name">{{item.name}}</view>
+        <view class="role-copy">{{item.description}}</view>
+      </view>
+    </view>
+
+    <view class="section">
+      <view class="section-title">喝起来</view>
+      <view class="feeling-copy">{{combination.feeling}}</view>
+    </view>
+
+    <view class="quiet-notice">实际味道会受材料比例、品牌和调制方式影响，这里只是一种大致判断。</view>
+  </block>
+
+  <view wx:else class="empty-state">
+    <view class="unknown-mark">?</view>
+    <view class="empty-state-title">还没认出这一杯</view>
+    <view class="empty-state-copy">换一种写法，或减少一次输入的内容再试试。</view>
+  </view>
+
+  <view wx:if="{{unrecognizedTokens.length}}" class="unknown-notice">
+    <view class="unknown-title">这些内容暂时没有认出</view>
+    <view class="unknown-copy">{{unrecognizedText}}</view>
+  </view>
+
+  <button class="secondary-button reenter-button" bindtap="reenter">重新输入</button>
+</view>
+

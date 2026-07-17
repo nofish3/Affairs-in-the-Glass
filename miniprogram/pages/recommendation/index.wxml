@@ -1,0 +1,55 @@
+<view wx:if="{{cocktail}}" class="page page-with-action recommendation enter {{changing ? 'is-changing' : ''}}">
+  <view class="drink-heading">
+    <view class="glass-emblem"><view class="glass-liquid"></view><view class="glass-stem"></view></view>
+    <view class="drink-kicker">今晚这一杯</view>
+    <view class="drink-name">{{cocktail.name}}</view>
+    <view class="drink-english">{{cocktail.englishName}}</view>
+    <view class="drink-summary">{{cocktail.summary}}</view>
+  </view>
+
+  <view class="tag-list result-tags">
+    <view class="tag" wx:for="{{cocktail.tags}}" wx:key="*this">{{item}}</view>
+  </view>
+
+  <view class="section reason-section">
+    <view class="section-title">为什么适合你</view>
+    <view wx:if="{{relaxed}}" class="relaxed-note">为你找了一杯最接近的</view>
+    <view class="reason-line" wx:for="{{reasons}}" wx:key="*this">{{item}}</view>
+  </view>
+
+  <view class="section profile-section">
+    <view class="section-title">这杯的样子</view>
+    <view class="profile-row"><text>味道</text><view class="profile-value"><text wx:for="{{cocktail.tasteRows}}" wx:key="key">{{item.label}} {{item.level}}</text></view></view>
+    <view class="profile-row"><text>香气</text><text class="profile-value">{{cocktail.aromaLabel}}</text></view>
+    <view class="profile-row"><text>酒感</text><text class="profile-value">{{cocktail.alcoholLabel}}</text></view>
+    <view class="profile-row"><text>口感</text><text class="profile-value">{{cocktail.textureLabel}}</text></view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">主要配料</view>
+    <view class="ingredient-list"><text wx:for="{{cocktail.ingredientNames}}" wx:key="*this">{{item}}</text></view>
+  </view>
+
+  <view class="section feeling-section">
+    <view class="section-title">喝起来</view>
+    <view class="feeling-copy">{{cocktail.feeling}}</view>
+  </view>
+</view>
+
+<view class="fixed-action">
+  <view class="fixed-action-row">
+    <button class="primary-button" loading="{{changing}}" hover-class="button-hover" bindtap="changeDrink">换一杯</button>
+    <button class="secondary-button" bindtap="reselect">返回重选</button>
+  </view>
+</view>
+
+<view wx:if="{{showChangePrompt}}" class="sheet-mask" bindtap="closePrompt">
+  <view class="change-sheet enter" catchtap="continueChange">
+    <view class="sheet-rule"></view>
+    <view class="sheet-title">要不要重新选选口味？</view>
+    <view class="sheet-copy">已经换了几杯，也许换一组偏好会更合适。</view>
+    <button class="primary-button" bindtap="promptReselect">重新选择</button>
+    <button class="sheet-quiet-button" bindtap="continueChange">继续换</button>
+  </view>
+</view>
+

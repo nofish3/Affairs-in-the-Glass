@@ -1,0 +1,33 @@
+<view class="page records-page enter">
+  <view class="records-header">
+    <view>
+      <view class="page-title">记一杯</view>
+      <view class="page-lead">酒名、配料和一点当时的感受。</view>
+    </view>
+    <button class="add-button" bindtap="addRecord" aria-label="新增记录">＋</button>
+  </view>
+
+  <view wx:if="{{loadError}}" class="quiet-notice error-notice">{{loadError}}。原有本地数据不会被覆盖。</view>
+
+  <view wx:if="{{records.length}}" class="record-list">
+    <button class="record-item" wx:for="{{records}}" wx:key="id" data-id="{{item.id}}" bindtap="editRecord">
+      <view class="record-index">{{index + 1 < 10 ? '0' + (index + 1) : index + 1}}</view>
+      <view class="record-content">
+        <view class="record-title">{{item.title}}</view>
+        <view wx:if="{{item.ingredientsSummary}}" class="record-meta">{{item.ingredientsSummary}}</view>
+        <view wx:if="{{item.feelingSummary}}" class="record-feeling">{{item.feelingSummary}}</view>
+      </view>
+      <view class="record-arrow">›</view>
+    </button>
+  </view>
+
+  <view wx:else class="empty-state">
+    <view class="notebook-mark" aria-hidden="true"><view></view><view></view><view></view></view>
+    <view class="empty-state-title">还没有写下哪一杯</view>
+    <view class="empty-state-copy">不必记得很全。知道酒名，或只记得几样配料，都可以。</view>
+    <button class="primary-button empty-action" bindtap="addRecord">记一杯</button>
+  </view>
+
+  <view class="storage-note">记录只保存在当前设备。清理缓存或更换手机后可能丢失。</view>
+</view>
+

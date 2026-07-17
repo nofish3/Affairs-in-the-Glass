@@ -1,0 +1,22 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/preference/index",
+    "pages/recommendation/index",
+    "pages/recognition-input/index",
+    "pages/recognition-result/index",
+    "pages/records/index",
+    "pages/record-edit/index"
+  ],
+  "window": {
+    "backgroundColor": "#F2E9D8",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#F2E9D8",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "杯中事"
+  },
+  "style": "v2",
+  "sitemapLocation": "../sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}
+
