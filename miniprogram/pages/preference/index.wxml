@@ -17,25 +17,25 @@
 
   <view class="section">
     <view class="section-title">香气</view>
-    <view class="selector-grid selector-grid-four">
-      <button wx:for="{{aromas}}" wx:key="value" class="selector-option {{preference.aroma === item.value ? 'is-selected' : ''}}"
-        data-value="{{item.value}}" bindtap="selectAroma">{{item.label}}<text wx:if="{{preference.aroma === item.value}}" class="check">✓</text></button>
+    <view class="selector-row">
+      <button wx:for="{{aromas}}" wx:key="value" class="selector-option {{item.value === 'random' ? 'selector-option-random' : ''}} {{preference.aroma === item.value ? 'is-selected' : ''}}"
+        data-value="{{item.value}}" bindtap="selectAroma">{{item.label}}</button>
     </view>
   </view>
 
   <view class="section">
     <view class="section-title">酒感</view>
-    <view class="selector-grid selector-grid-four">
-      <button wx:for="{{alcoholOptions}}" wx:key="value" class="selector-option {{preference.alcoholFeeling === item.value ? 'is-selected' : ''}}"
-        data-value="{{item.value}}" bindtap="selectAlcohol">{{item.label}}<text wx:if="{{preference.alcoholFeeling === item.value}}" class="check">✓</text></button>
+    <view class="selector-row">
+      <button wx:for="{{alcoholOptions}}" wx:key="value" class="selector-option {{item.value === 'random' ? 'selector-option-random' : ''}} {{preference.alcoholFeeling === item.value ? 'is-selected' : ''}}"
+        data-value="{{item.value}}" bindtap="selectAlcohol">{{item.label}}</button>
     </view>
   </view>
 
   <view class="section">
     <view class="section-title">口感</view>
-    <view class="selector-grid selector-grid-four">
-      <button wx:for="{{textures}}" wx:key="value" class="selector-option {{preference.texture === item.value ? 'is-selected' : ''}}"
-        data-value="{{item.value}}" bindtap="selectTexture">{{item.label}}<text wx:if="{{preference.texture === item.value}}" class="check">✓</text></button>
+    <view class="selector-row">
+      <button wx:for="{{textures}}" wx:key="value" class="selector-option {{item.value === 'random' ? 'selector-option-random' : ''}} {{preference.texture === item.value ? 'is-selected' : ''}}"
+        data-value="{{item.value}}" bindtap="selectTexture">{{item.label}}</button>
     </view>
   </view>
 
