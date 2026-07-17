@@ -1,6 +1,6 @@
 import { COCKTAILS } from '../../data/cocktails';
 import { INGREDIENTS } from '../../data/ingredients';
-import { recognizeInput } from '../../services/recognition-service';
+import { recognizeFields } from '../../services/recognition-service';
 import { getRecognitionSession, setRecognitionSession } from '../../stores/recognition-session';
 
 Page({
@@ -38,7 +38,7 @@ Page({
       return;
     }
     this.setData({ submitting: true });
-    const result = recognizeInput(input, COCKTAILS, INGREDIENTS);
+    const result = recognizeFields({ drinkName, ingredientsText }, COCKTAILS, INGREDIENTS);
     if (result.type === 'empty') {
       this.setData({ error: '酒名或配料至少填写一项', submitting: false });
       return;

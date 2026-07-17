@@ -17,27 +17,24 @@
 
   <view class="section">
     <view class="section-title">香气</view>
-    <view class="choice-grid">
-      <button wx:for="{{aromas}}" wx:key="value" class="choice aroma-choice {{preference.aroma === item.value ? 'is-selected' : ''}}"
-        data-value="{{item.value}}" bindtap="selectAroma">
-        <view class="choice-label">{{item.label}}<text wx:if="{{preference.aroma === item.value}}" class="check">✓</text></view>
-        <view wx:if="{{item.hint}}" class="choice-hint">{{item.hint}}</view>
-      </button>
+    <view class="selector-grid selector-grid-four">
+      <button wx:for="{{aromas}}" wx:key="value" class="selector-option {{preference.aroma === item.value ? 'is-selected' : ''}}"
+        data-value="{{item.value}}" bindtap="selectAroma">{{item.label}}<text wx:if="{{preference.aroma === item.value}}" class="check">✓</text></button>
     </view>
   </view>
 
   <view class="section">
     <view class="section-title">酒感</view>
-    <view class="choice-grid choice-grid-four">
-      <button wx:for="{{alcoholOptions}}" wx:key="value" class="choice {{preference.alcoholFeeling === item.value ? 'is-selected' : ''}}"
+    <view class="selector-grid selector-grid-four">
+      <button wx:for="{{alcoholOptions}}" wx:key="value" class="selector-option {{preference.alcoholFeeling === item.value ? 'is-selected' : ''}}"
         data-value="{{item.value}}" bindtap="selectAlcohol">{{item.label}}<text wx:if="{{preference.alcoholFeeling === item.value}}" class="check">✓</text></button>
     </view>
   </view>
 
   <view class="section">
     <view class="section-title">口感</view>
-    <view class="choice-grid choice-grid-four">
-      <button wx:for="{{textures}}" wx:key="value" class="choice {{preference.texture === item.value ? 'is-selected' : ''}}"
+    <view class="selector-grid selector-grid-four">
+      <button wx:for="{{textures}}" wx:key="value" class="selector-option {{preference.texture === item.value ? 'is-selected' : ''}}"
         data-value="{{item.value}}" bindtap="selectTexture">{{item.label}}<text wx:if="{{preference.texture === item.value}}" class="check">✓</text></button>
     </view>
   </view>

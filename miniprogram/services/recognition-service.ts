@@ -91,6 +91,11 @@ function removeRange(text: string, start: number, length: number): string {
   return `${text.slice(0, start)} ${text.slice(start + length)}`;
 }
 
+export interface RecognitionFields {
+  drinkName: string;
+  ingredientsText: string;
+}
+
 export function recognizeInput(
   rawInput: string,
   cocktails: Cocktail[],
@@ -150,4 +155,42 @@ export function recognizeInput(
     .filter((token) => !/^[,，、;；/／]+$/.test(token));
 
   return analyzeIngredientCombination(recognizedIngredients, unrecognizedTokens);
+}
+
+export function recognizeFields(
+  fields: RecognitionFields,
+  cocktails: Cocktail[],
+  ingredients: Ingredient[]
+): RecognitionResult {
+  const drinkName = fields.drinkName.trim();
+  const ingredientsText = fields.ingredientsText.trim();
+  const normalizedName = normalizeSearchText(drinkName);
+  const normalizedIngredients = normalizeSearchText(ingredientsText);
+
+  if (!normalizedName && !normalizedIngredients) return { type: 'empty', unrecognizedTokens: [] };
+  if (normalizedName.length + normalizedIngredients.length > 500) {
+    return { type: 'not-found', unrecognizedTokens: [normalizedName || normalizedIngredients] };
+  }
+
+  if (!normalizedName) return recognizeInput(ingredientsText, cocktails, ingredients);
+
+  const index = getAliasIndex(cocktails, ingredients);
+  const cocktailMatch = findMatches(normalizedName, index, 'cocktail')[0];
+  if (!cocktailMatch) {
+    // A bar's house cocktail name is not ingredient data. Only parse the ingredient field as a fallback.
+    return normalizedIngredients
+      ? recognizeInput(ingredientsText, cocktails, ingredients)
+      : { type: 'not-found', unrecognizedTokens: splitRemainingTokens(normalizedName) };
+  }
+
+  const extras = normalizedIngredients
+    ? recognizeInput(ingredientsText, cocktails, ingredients)
+    : null;
+  return {
+    type: 'cocktail',
+    cocktailId: cocktailMatch.entityId,
+    matchedAlias: cocktailMatch.sourceAlias,
+    recognizedExtraIngredientIds: extras?.type === 'ingredient-combination' ? extras.recognizedIngredientIds : [],
+    unrecognizedTokens: extras?.type === 'ingredient-combination' ? extras.unrecognizedTokens : []
+  };
 }

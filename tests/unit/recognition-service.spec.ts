@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { COCKTAILS } from '../../miniprogram/data/cocktails';
 import { INGREDIENTS } from '../../miniprogram/data/ingredients';
-import { recognizeInput } from '../../miniprogram/services/recognition-service';
+import { recognizeFields, recognizeInput } from '../../miniprogram/services/recognition-service';
 
 describe('recognition service', () => {
   const enabledCocktailAliases = COCKTAILS
@@ -36,6 +36,19 @@ describe('recognition service', () => {
     if (result.type === 'cocktail') {
       expect(result.cocktailId).toBe('whiskey-sour');
       expect(result.recognizedExtraIngredientIds).toContain('honey-syrup');
+    }
+  });
+
+  it('falls back to the ingredient field when a house cocktail name is not in the catalog', () => {
+    const result = recognizeFields(
+      { drinkName: 'House special', ingredientsText: 'whiskey, lime, honey' },
+      COCKTAILS,
+      INGREDIENTS
+    );
+    expect(result.type).toBe('ingredient-combination');
+    if (result.type === 'ingredient-combination') {
+      expect(result.recognizedIngredientIds).toEqual(expect.arrayContaining(['whiskey', 'lime-juice', 'honey-syrup']));
+      expect(result.unrecognizedTokens).not.toContain('house special');
     }
   });
 

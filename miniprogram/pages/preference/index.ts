@@ -15,8 +15,8 @@ Page({
     levels: [{ value: 1, label: '低' }, { value: 2, label: '中' }, { value: 3, label: '高' }],
     aromas: [
       { value: 'floral', label: '花香' }, { value: 'fruity', label: '果香' },
-      { value: 'herbal', label: '草本' }, { value: 'woody', label: '木质', hint: '桶香、烘烤' },
-      { value: 'spiced', label: '香料', hint: '肉桂、胡椒' }, { value: 'creamy', label: '奶香' },
+      { value: 'herbal', label: '草本' }, { value: 'woody', label: '木质' },
+      { value: 'spiced', label: '香料' }, { value: 'creamy', label: '奶香' },
       { value: 'random', label: '随机' }
     ],
     alcoholOptions: [
