@@ -1,27 +1,17 @@
-.taste-head,
 .taste-row {
   display: flex;
   width: 100%;
   align-items: center;
 }
 
-.taste-head > text:first-child,
 .taste-name {
   width: 96rpx;
   flex: 0 0 96rpx;
 }
 
-.taste-head > text:not(:first-child),
 .taste-level {
   min-width: 0;
   flex: 1 1 0;
-}
-
-.taste-head {
-  height: 56rpx;
-  color: var(--ink-secondary);
-  font-size: 22rpx;
-  text-align: center;
 }
 
 .taste-row {
@@ -48,6 +38,11 @@
   transition: background-color 140ms ease, color 140ms ease;
 }
 
+.taste-level::after,
+.selector-option::after {
+  border: 0;
+}
+
 .taste-level:nth-child(2) { border-radius: 8rpx 0 0 8rpx; }
 .taste-level:last-child { border-right: 0; border-radius: 0 8rpx 8rpx 0; }
 
@@ -58,19 +53,18 @@
 }
 
 .selector-row {
-  display: flex;
+  display: block;
   width: 100%;
-  flex-wrap: wrap;
 }
 
 .selector-option {
   display: flex;
-  width: 33.3333%;
+  width: 100%;
   min-width: 0;
   height: 64rpx;
   align-items: center;
   justify-content: center;
-  border-right: 1rpx solid var(--line-default);
+  border-bottom: 1rpx solid rgba(185, 170, 143, 0.62);
   background: rgba(250, 246, 236, 0.4);
   color: var(--ink-secondary);
   font-size: 26rpx;
@@ -79,26 +73,23 @@
   transition: background-color 140ms ease, color 140ms ease, border-color 140ms ease;
 }
 
-.selector-option:nth-child(3n + 1) {
-  border-radius: 8rpx 0 0 8rpx;
+.selector-option:first-child {
+  border-radius: 8rpx 8rpx 0 0;
 }
 
-.selector-option:nth-child(3n) {
-  border-right: 0;
-  border-radius: 0 8rpx 8rpx 0;
+.selector-option:last-child {
+  border-bottom: 0;
+  border-radius: 0 0 8rpx 8rpx;
 }
 
 .selector-option-random {
-  width: 100%;
-  margin-top: 1rpx;
-  border-right: 0;
+  border-bottom: 0;
   border-radius: 8rpx;
 }
 
 .validation-summary { margin-top: 28rpx; }
 
 @media (max-width: 340px) {
-  .taste-head > text:first-child,
   .taste-name {
     width: 80rpx;
     flex-basis: 80rpx;

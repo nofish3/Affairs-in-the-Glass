@@ -6,17 +6,7 @@
   </view>
 
   <view class="hero-still-life" aria-hidden="true">
-    <view class="hero-sun"></view>
-    <view class="hero-glass">
-      <view class="hero-drink"></view>
-      <view class="hero-ice hero-ice-a"></view>
-      <view class="hero-ice hero-ice-b"></view>
-      <view class="hero-peel"></view>
-    </view>
-    <view class="hero-stem"></view>
-    <view class="hero-leaf hero-leaf-a"></view>
-    <view class="hero-leaf hero-leaf-b"></view>
-    <view class="hero-shadow"></view>
+    <image class="hero-image" src="/assets/home-hero.png" mode="widthFix" />
   </view>
 
   <view class="entry-list" aria-label="主要功能">
@@ -48,4 +38,3 @@
 
   <view class="responsible-note">理性饮酒 · 未成年人请勿饮酒</view>
 </view>
-

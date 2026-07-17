@@ -5,7 +5,6 @@
   <view class="section taste-section">
     <view class="section-title">味道</view>
     <view class="section-note">没有选择的味道，不参与这次推荐。</view>
-    <view class="taste-head"><text></text><text>低</text><text>中</text><text>高</text></view>
     <view class="taste-row" wx:for="{{tasteOptions}}" wx:key="key">
       <view class="taste-name">{{item.label}}</view>
       <button wx:for="{{levels}}" wx:for-item="level" wx:key="value"

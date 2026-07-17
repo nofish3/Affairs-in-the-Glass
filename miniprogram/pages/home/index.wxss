@@ -32,97 +32,18 @@
 
 .hero-still-life {
   position: relative;
-  min-height: 420rpx;
+  min-height: 520rpx;
   flex: 1;
-  margin: -60rpx -40rpx 12rpx;
+  margin: -12rpx -40rpx 8rpx;
   overflow: hidden;
 }
 
-.hero-sun {
+.hero-image {
   position: absolute;
-  top: 38rpx;
-  right: 54rpx;
-  width: 260rpx;
-  height: 260rpx;
-  border-radius: 50%;
-  background: rgba(164, 123, 61, 0.17);
-}
-
-.hero-glass {
-  position: absolute;
-  right: 122rpx;
-  bottom: 44rpx;
-  width: 248rpx;
-  height: 272rpx;
-  overflow: hidden;
-  border: 5rpx solid var(--green-primary);
-  border-top-width: 7rpx;
-  border-radius: 16rpx 16rpx 64rpx 64rpx;
-  transform: rotate(2deg);
-}
-
-.hero-drink {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 180rpx;
-  border-top: 4rpx solid var(--wine-accent);
-  background: rgba(122, 49, 54, 0.66);
-}
-
-.hero-ice {
-  position: absolute;
-  width: 82rpx;
-  height: 82rpx;
-  border: 4rpx solid rgba(250, 246, 236, 0.8);
-  transform: rotate(18deg);
-}
-
-.hero-ice-a { right: 30rpx; bottom: 76rpx; }
-.hero-ice-b { left: 28rpx; bottom: 44rpx; transform: rotate(-12deg); }
-
-.hero-peel {
-  position: absolute;
-  top: 16rpx;
-  right: -22rpx;
-  width: 116rpx;
-  height: 54rpx;
-  border-top: 16rpx solid var(--brass-accent);
-  border-radius: 50%;
-  transform: rotate(-22deg);
-}
-
-.hero-stem {
-  position: absolute;
-  right: 346rpx;
-  bottom: 102rpx;
-  width: 4rpx;
-  height: 250rpx;
-  background: var(--green-primary);
-  transform: rotate(-24deg);
-  transform-origin: bottom;
-}
-
-.hero-leaf {
-  position: absolute;
-  width: 92rpx;
-  height: 38rpx;
-  border: 4rpx solid var(--green-primary);
-  border-radius: 100% 0 100% 0;
-}
-
-.hero-leaf-a { right: 376rpx; bottom: 224rpx; transform: rotate(18deg); }
-.hero-leaf-b { right: 306rpx; bottom: 168rpx; transform: rotate(196deg); }
-
-.hero-shadow {
-  position: absolute;
-  right: 70rpx;
-  bottom: 16rpx;
-  width: 390rpx;
-  height: 24rpx;
-  border-radius: 50%;
-  background: rgba(37, 40, 34, 0.12);
+  top: 0;
+  right: -8rpx;
+  width: 680rpx;
+  height: auto;
 }
 
 .entry-list {
@@ -175,4 +96,3 @@
   font-size: 20rpx;
   text-align: center;
 }
-
