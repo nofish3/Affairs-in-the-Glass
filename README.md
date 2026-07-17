@@ -18,7 +18,7 @@
 
 ## 数据准确性
 
-第一版启用 40 款含酒精鸡尾酒。中文名、英文名和主要配料以 International Bartenders Association（IBA）官方条目为基线；酸甜苦、香气、酒感、口感与饮用描述属于杯中事编辑判断。
+第一版启用 41 款含酒精鸡尾酒。40 款以 International Bartenders Association（IBA）官方条目为基线，金汤力使用 The Bar 官方条目；酸甜苦、香气、酒感、口感与饮用描述属于杯中事编辑判断。
 
 详见 [数据来源说明](docs/data-sources.md) 和 [`recipe-sources.ts`](miniprogram/data/recipe-sources.ts)。
 
@@ -50,4 +50,3 @@ npm run test:coverage
 - 不上传解析输入或饮酒记录。
 - 记录只保存在当前设备，清理缓存或更换手机后可能丢失。
 - 未成年人请勿饮酒，理性饮酒。
-

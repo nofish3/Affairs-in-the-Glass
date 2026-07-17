@@ -4,6 +4,11 @@ import { INGREDIENTS } from '../../miniprogram/data/ingredients';
 import { recognizeInput } from '../../miniprogram/services/recognition-service';
 
 describe('recognition service', () => {
+  const enabledCocktailAliases = COCKTAILS
+    .filter((cocktail) => cocktail.enabled)
+    .flatMap((cocktail) => [...new Set([cocktail.name, cocktail.englishName, ...cocktail.aliases])]
+      .map((alias) => [alias, cocktail.id] as const));
+
   it('handles empty and punctuation-only input', () => {
     expect(recognizeInput('   ', COCKTAILS, INGREDIENTS).type).toBe('empty');
     expect(recognizeInput('，、 /', COCKTAILS, INGREDIENTS).type).toBe('not-found');
@@ -12,15 +17,17 @@ describe('recognition service', () => {
   it.each([
     ['尼格罗尼', 'negroni'],
     ['OLD FASHIONED', 'old-fashioned'],
-    ['Ｇ＆Ｔ', undefined]
+    ['Ｇ＆Ｔ', 'gin-tonic']
   ])('recognizes cocktail alias %s', (input, id) => {
     const result = recognizeInput(input, COCKTAILS, INGREDIENTS);
-    if (id) {
-      expect(result.type).toBe('cocktail');
-      if (result.type === 'cocktail') expect(result.cocktailId).toBe(id);
-    } else {
-      expect(result.type).toBe('not-found');
-    }
+    expect(result.type).toBe('cocktail');
+    if (result.type === 'cocktail') expect(result.cocktailId).toBe(id);
+  });
+
+  it.each(enabledCocktailAliases)('recognizes enabled cocktail name or alias %s', (input, id) => {
+    const result = recognizeInput(input, COCKTAILS, INGREDIENTS);
+    expect(result.type).toBe('cocktail');
+    if (result.type === 'cocktail') expect(result.cocktailId).toBe(id);
   });
 
   it('prioritizes a cocktail name and keeps extra ingredients', () => {
@@ -62,4 +69,3 @@ describe('recognition service', () => {
     expect(recognizeInput('x'.repeat(501), COCKTAILS, INGREDIENTS).type).toBe('not-found');
   });
 });
-

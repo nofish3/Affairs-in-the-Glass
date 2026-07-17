@@ -44,3 +44,8 @@ export const IBA_INGREDIENT_AUDIT: Record<string, string[]> = {
   'irish-coffee': ['irish-whiskey', 'coffee', 'cream', 'sugar']
 };
 
+// Common classics outside the current IBA list are checked against the source
+// attached to the same cocktail id. Optional garnish and ice are omitted.
+export const OTHER_SOURCE_INGREDIENT_AUDIT: Record<string, string[]> = {
+  'gin-tonic': ['gin', 'tonic-water']
+};

@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it } from 'vitest';
-import { clearRecommendationSession, getRecommendationSession, setCurrentRecommendation, setPreference } from '../../miniprogram/stores/recommendation-session';
+import { clearRecommendationSession, getRecommendationSession, resetShownCocktails, setCurrentRecommendation, setPreference } from '../../miniprogram/stores/recommendation-session';
 
 const preference = {
   tastes: { sour: 2 as const },
@@ -36,5 +36,13 @@ describe('recommendation session', () => {
     expect(getRecommendationSession()).toMatchObject({ shownCocktailIds: [], changeCount: 0 });
     expect(getRecommendationSession()?.current).toBeUndefined();
   });
-});
 
+  it('starts a new shown cycle while keeping the current cocktail excluded', () => {
+    setPreference(preference);
+    setCurrentRecommendation({ cocktailId: 'first', score: 1, matchType: 'strict', reasons: [] });
+    setCurrentRecommendation({ cocktailId: 'second', score: 1, matchType: 'strict', reasons: [] }, true);
+    resetShownCocktails('second');
+    expect(getRecommendationSession()?.shownCocktailIds).toEqual(['second']);
+    expect(getRecommendationSession()?.changeCount).toBe(1);
+  });
+});

@@ -2,8 +2,9 @@
 
 ## 发布原则
 
-- 第一版仅启用 40 款具有可追溯权威来源的含酒精鸡尾酒。
-- 中文名、英文名和主要配料以 International Bartenders Association（IBA）当前官方条目为基线。
+- 第一版仅启用 41 款具有可追溯来源的含酒精鸡尾酒。
+- 其中 40 款的中文名、英文名和主要配料以 International Bartenders Association（IBA）当前官方条目为基线。
+- IBA 当前清单未覆盖、但酒吧中常见的酒款，必须绑定可逐项核验的行业或品牌官方资料；首版金汤力采用 The Bar 的官方条目。
 - 小程序只展示配料名称，不展示 IBA 配方中的毫升数、比例或制作步骤。
 - 酸甜苦咸鲜辣等级、主香气、酒感、口感、推荐标签和饮用描述是杯中事的编辑性判断，不是 IBA 的官方结论。
 - 每条来源记录保存在 `miniprogram/data/recipe-sources.ts`，包含具体 URL 与核验日期。
@@ -21,5 +22,6 @@
 
 - IBA Cocktail List: https://iba-world.com/iba-cocktail-list/
 - IBA Cocktail Sitemap: https://iba-world.com/wp-sitemap-posts-iba-cocktail-1.xml
+- The Bar, Gin and Tonic: https://www.thebar.com/en-gb/recipes/gin-and-tonic
 
 具体酒款条目 URL 见 `miniprogram/data/recipe-sources.ts`。

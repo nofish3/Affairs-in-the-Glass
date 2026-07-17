@@ -25,7 +25,15 @@ export function setCurrentRecommendation(result: RecommendationResult, isChange 
   return getRecommendationSession()!;
 }
 
+export function resetShownCocktails(keepCocktailId?: string): RecommendationSession {
+  if (!session) throw new Error('推荐会话尚未开始');
+  session = {
+    ...session,
+    shownCocktailIds: keepCocktailId ? [keepCocktailId] : []
+  };
+  return getRecommendationSession()!;
+}
+
 export function clearRecommendationSession(): void {
   session = null;
 }
-

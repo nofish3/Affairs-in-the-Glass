@@ -9,6 +9,8 @@ interface AliasEntry {
   entityId: string;
 }
 
+const aliasIndexCache = new WeakMap<Cocktail[], WeakMap<Ingredient[], AliasEntry[]>>();
+
 function isAsciiWord(char: string | undefined): boolean {
   return Boolean(char && /[a-z0-9]/i.test(char));
 }
@@ -44,6 +46,19 @@ export function buildAliasIndex(cocktails: Cocktail[], ingredients: Ingredient[]
     }));
   });
   return entries.sort((a, b) => b.normalizedAlias.length - a.normalizedAlias.length);
+}
+
+function getAliasIndex(cocktails: Cocktail[], ingredients: Ingredient[]): AliasEntry[] {
+  let byIngredientList = aliasIndexCache.get(cocktails);
+  if (!byIngredientList) {
+    byIngredientList = new WeakMap<Ingredient[], AliasEntry[]>();
+    aliasIndexCache.set(cocktails, byIngredientList);
+  }
+  const cached = byIngredientList.get(ingredients);
+  if (cached) return cached;
+  const index = buildAliasIndex(cocktails, ingredients);
+  byIngredientList.set(ingredients, index);
+  return index;
 }
 
 export function findAliasConflicts(entries: AliasEntry[]): string[] {
@@ -85,7 +100,7 @@ export function recognizeInput(
   if (!normalized) return { type: 'empty', unrecognizedTokens: [] };
   if (normalized.length > 500) return { type: 'not-found', unrecognizedTokens: [normalized] };
 
-  const index = buildAliasIndex(cocktails, ingredients);
+  const index = getAliasIndex(cocktails, ingredients);
   const cocktailMatch = findMatches(normalized, index, 'cocktail')[0];
 
   if (cocktailMatch) {

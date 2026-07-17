@@ -1,6 +1,6 @@
 import { COCKTAILS, COCKTAIL_BY_ID } from '../../data/cocktails';
 import { getNextRecommendation } from '../../services/recommendation-service';
-import { getRecommendationSession, setCurrentRecommendation } from '../../stores/recommendation-session';
+import { getRecommendationSession, resetShownCocktails, setCurrentRecommendation } from '../../stores/recommendation-session';
 import { cocktailView } from '../../utils/presentation';
 
 Page({
@@ -47,6 +47,9 @@ Page({
       wx.showToast({ title: '暂时没有别的酒了', icon: 'none' });
       return;
     }
+    if (session.shownCocktailIds.includes(result.cocktailId)) {
+      resetShownCocktails(session.current.cocktailId);
+    }
     const updated = setCurrentRecommendation(result, true);
     this.loadCurrent();
     if (updated.changeCount === 3) this.setData({ showChangePrompt: true });
@@ -57,4 +60,3 @@ Page({
   promptReselect() { this.setData({ showChangePrompt: false }); wx.navigateBack(); },
   closePrompt() { this.setData({ showChangePrompt: false }); }
 });
-

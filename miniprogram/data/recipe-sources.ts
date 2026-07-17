@@ -1,6 +1,6 @@
 export interface RecipeSource {
   cocktailId: string;
-  publisher: 'International Bartenders Association';
+  publisher: 'International Bartenders Association' | 'The Bar';
   url: string;
   checkedAt: string;
   scope: 'name-and-ingredients';
@@ -16,9 +16,18 @@ const iba = (cocktailId: string, slug: string = cocktailId): RecipeSource => ({
   scope: 'name-and-ingredients'
 });
 
+const theBar = (cocktailId: string, slug: string): RecipeSource => ({
+  cocktailId,
+  publisher: 'The Bar',
+  url: `https://www.thebar.com/en-gb/recipes/${slug}`,
+  checkedAt: '2026-07-17',
+  scope: 'name-and-ingredients'
+});
+
 // Flavor levels, aroma, texture and editorial copy are authored by 杯中事.
 // These sources only validate the recognized cocktail name and principal ingredients.
 export const RECIPE_SOURCES: RecipeSource[] = [
+  theBar('gin-tonic', 'gin-and-tonic'),
   iba('dry-martini'),
   iba('negroni'),
   iba('bees-knees'),
@@ -64,4 +73,3 @@ export const RECIPE_SOURCES: RecipeSource[] = [
 export const RECIPE_SOURCE_BY_COCKTAIL_ID = new Map(
   RECIPE_SOURCES.map((source) => [source.cocktailId, source])
 );
-

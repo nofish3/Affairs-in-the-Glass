@@ -2,26 +2,27 @@ import { describe, expect, it } from 'vitest';
 import { COCKTAILS } from '../../miniprogram/data/cocktails';
 import { INGREDIENTS } from '../../miniprogram/data/ingredients';
 import { RECIPE_SOURCE_BY_COCKTAIL_ID } from '../../miniprogram/data/recipe-sources';
-import { IBA_INGREDIENT_AUDIT } from '../../miniprogram/data/iba-ingredient-audit';
+import { IBA_INGREDIENT_AUDIT, OTHER_SOURCE_INGREDIENT_AUDIT } from '../../miniprogram/data/iba-ingredient-audit';
 import { TASTE_KEYS } from '../../miniprogram/types/domain';
 import { buildAliasIndex, findAliasConflicts } from '../../miniprogram/services/recognition-service';
 
 describe('cocktail data quality', () => {
-  it('ships 40 sourced cocktails and keeps drafts disabled', () => {
+  it('ships 41 sourced cocktails and keeps unverified drafts disabled', () => {
     const enabled = COCKTAILS.filter((item) => item.enabled);
-    expect(enabled).toHaveLength(40);
+    expect(enabled).toHaveLength(41);
     enabled.forEach((item) => expect(RECIPE_SOURCE_BY_COCKTAIL_ID.has(item.id)).toBe(true));
   });
 
-  it('matches the reviewed IBA principal ingredient audit', () => {
+  it('matches every reviewed source ingredient audit', () => {
     const enabled = COCKTAILS.filter((item) => item.enabled);
-    expect(Object.keys(IBA_INGREDIENT_AUDIT)).toHaveLength(enabled.length);
+    const ingredientAudit = { ...IBA_INGREDIENT_AUDIT, ...OTHER_SOURCE_INGREDIENT_AUDIT };
+    expect(Object.keys(ingredientAudit)).toHaveLength(enabled.length);
     const mismatches = enabled
-      .filter((cocktail) => JSON.stringify(cocktail.ingredientIds) !== JSON.stringify(IBA_INGREDIENT_AUDIT[cocktail.id]))
+      .filter((cocktail) => JSON.stringify(cocktail.ingredientIds) !== JSON.stringify(ingredientAudit[cocktail.id]))
       .map((cocktail) => ({
         cocktailId: cocktail.id,
         actual: cocktail.ingredientIds,
-        expected: IBA_INGREDIENT_AUDIT[cocktail.id]
+        expected: ingredientAudit[cocktail.id]
       }));
     expect(mismatches).toEqual([]);
   });
