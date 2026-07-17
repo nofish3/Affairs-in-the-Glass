@@ -68,6 +68,20 @@ describe('recognition service', () => {
     expect(lime.type).toBe('ingredient-combination');
   });
 
+  it('recognizes expanded bar pantry ingredients', () => {
+    const result = recognizeInput('buckwheat, shiso, pink peppercorn, miso, saline', COCKTAILS, INGREDIENTS);
+    expect(result.type).toBe('ingredient-combination');
+    if (result.type === 'ingredient-combination') {
+      expect(result.recognizedIngredientIds).toEqual(expect.arrayContaining([
+        'buckwheat',
+        'shiso',
+        'pink-peppercorn',
+        'miso',
+        'brine'
+      ]));
+    }
+  });
+
   it('deduplicates ingredients and reports unknown tokens', () => {
     const result = recognizeInput('青柠、青柠、月光糖浆', COCKTAILS, INGREDIENTS);
     expect(result.type).toBe('ingredient-combination');
