@@ -31,7 +31,7 @@
   </view>
 
   <view class="section feeling-section">
-    <view class="section-title">喝起来</view>
+    <view class="section-title">Feeling</view>
     <view class="feeling-copy">{{cocktail.feeling}}</view>
   </view>
 </view>
@@ -52,4 +52,3 @@
     <button class="sheet-quiet-button" bindtap="continueChange">继续换</button>
   </view>
 </view>
-

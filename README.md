@@ -31,7 +31,7 @@ npm test
 npm run test:coverage
 ```
 
-使用微信开发者工具导入仓库根目录。`project.config.json` 当前使用游客 AppID，仅适合本地编译；预览和上传前需替换为项目真实 AppID。
+使用微信开发者工具导入仓库根目录。`project.config.json` 已配置项目 AppID，可直接进行本地编译；预览和上传仍需使用该小程序的开发者微信登录。
 
 ## 视觉预览
 

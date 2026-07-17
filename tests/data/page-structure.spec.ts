@@ -22,11 +22,19 @@ describe('mini program page structure', () => {
     const preference = readFileSync(resolve(pageRoot, 'preference/index.wxml'), 'utf8');
     const recommendation = readFileSync(resolve(pageRoot, 'recommendation/index.wxml'), 'utf8');
     const recognition = readFileSync(resolve(pageRoot, 'recognition-input/index.wxml'), 'utf8');
+    const recognitionLogic = readFileSync(resolve(pageRoot, 'recognition-input/index.ts'), 'utf8');
     expect(home).toContain('今晚，喝点什么。');
     expect(preference).toContain('今晚想喝点什么');
+    expect(preference).not.toContain('info-button');
     expect(recommendation).toContain('为什么适合你');
-    expect(recognition).toContain('输入酒名、英文名或主要配料');
+    expect(recommendation).toContain('Feeling');
+    expect(recommendation).not.toContain('喝起来');
+    expect(recognition).toContain('酒名 <text class="optional-mark">选填</text>');
+    expect(recognition).toContain('配料组合 <text class="optional-mark">选填</text>');
+    expect(recognition).toContain('bindinput="onNameInput"');
+    expect(recognition).toContain('bindinput="onIngredientsInput"');
+    expect(recognitionLogic).toContain("error: '酒名或配料至少填写一项'");
+    expect(recognitionLogic).toContain('this.setData(previous.fields)');
     expect(recommendation).not.toContain('记下这杯');
   });
 });
-

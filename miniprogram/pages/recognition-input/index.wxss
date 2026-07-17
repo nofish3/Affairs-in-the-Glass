@@ -36,18 +36,14 @@
 .search-line-a { left: 90rpx; bottom: 92rpx; width: 250rpx; transform: rotate(-18deg); }
 .search-line-b { left: 130rpx; bottom: 42rpx; width: 180rpx; transform: rotate(-9deg); opacity: 0.55; }
 
-.input-section { padding-top: 16rpx; }
-.recognition-area { height: 280rpx; }
-
-.input-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10rpx;
-  margin-top: 14rpx;
+.input-section { padding-top: 8rpx; }
+.recognition-form { border-top: 2rpx solid var(--ink-primary); }
+.recognition-field { display: block; padding: 32rpx 0 36rpx; border-bottom: 1rpx solid var(--line-default); }
+.recognition-area { height: 190rpx; min-height: 190rpx; }
+.optional-mark {
+  margin-left: 8rpx;
   color: var(--ink-secondary);
   font-size: 22rpx;
+  font-weight: 400;
 }
-
-.input-meta text:nth-child(2) { color: var(--wine-accent); }
-.recognition-notice { margin-top: 50rpx; }
-
+.recognition-notice { margin-top: 38rpx; }

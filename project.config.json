@@ -1,5 +1,5 @@
 {
-  "appid": "touristappid",
+  "appid": "wx08bd98cdd7dd5e53",
   "compileType": "miniprogram",
   "libVersion": "3.7.12",
   "miniprogramRoot": "miniprogram/",
@@ -10,10 +10,35 @@
     "minified": true,
     "postcss": true,
     "showShadowRootInWxmlPanel": true,
-    "useCompilerPlugins": ["typescript"],
-    "urlCheck": false
+    "useCompilerPlugins": [
+      "typescript"
+    ],
+    "urlCheck": false,
+    "compileWorklet": false,
+    "uglifyFileName": false,
+    "uploadWithSourceMap": true,
+    "enhance": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "minifyWXML": true,
+    "localPlugins": false,
+    "disableUseStrict": false,
+    "condition": false,
+    "swc": false,
+    "disableSWC": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    }
   },
   "simulatorType": "wechat",
-  "condition": {}
+  "condition": {},
+  "simulatorPluginLibVersion": {},
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "editorSetting": {}
 }
-

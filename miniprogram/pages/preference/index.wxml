@@ -18,12 +18,11 @@
   <view class="section">
     <view class="section-title">香气</view>
     <view class="choice-grid">
-      <view class="choice-wrap" wx:for="{{aromas}}" wx:key="value">
-        <button class="choice {{preference.aroma === item.value ? 'is-selected' : ''}}"
-          data-value="{{item.value}}" bindtap="selectAroma">{{item.label}}<text wx:if="{{preference.aroma === item.value}}" class="check">✓</text></button>
-        <button wx:if="{{item.value === 'woody' || item.value === 'spiced'}}" class="info-button"
-          data-value="{{item.value}}" bindtap="showAromaHelp" aria-label="解释{{item.label}}">?</button>
-      </view>
+      <button wx:for="{{aromas}}" wx:key="value" class="choice aroma-choice {{preference.aroma === item.value ? 'is-selected' : ''}}"
+        data-value="{{item.value}}" bindtap="selectAroma">
+        <view class="choice-label">{{item.label}}<text wx:if="{{preference.aroma === item.value}}" class="check">✓</text></view>
+        <view wx:if="{{item.hint}}" class="choice-hint">{{item.hint}}</view>
+      </button>
     </view>
   </view>
 

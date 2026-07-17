@@ -1,8 +1,20 @@
 .taste-head,
 .taste-row {
-  display: grid;
-  grid-template-columns: 112rpx repeat(3, 1fr);
+  display: flex;
+  width: 100%;
   align-items: center;
+}
+
+.taste-head > text:first-child,
+.taste-name {
+  width: 84rpx;
+  flex: 0 0 84rpx;
+}
+
+.taste-head > text:not(:first-child),
+.taste-level {
+  min-width: 0;
+  flex: 1 1 0;
 }
 
 .taste-head {
@@ -25,7 +37,6 @@
 
 .taste-level {
   display: flex;
-  width: 100%;
   height: 64rpx;
   align-items: center;
   justify-content: center;
@@ -46,26 +57,22 @@
 }
 
 .choice-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
   gap: 16rpx;
-}
-
-.choice-grid-four {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.choice-wrap {
-  position: relative;
 }
 
 .choice {
   display: flex;
-  width: 100%;
+  width: calc(50% - 8rpx);
+  min-width: 0;
   min-height: 84rpx;
+  flex: 0 0 calc(50% - 8rpx);
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10rpx;
+  gap: 4rpx;
   border: 2rpx solid var(--line-default);
   border-radius: 8rpx;
   background: rgba(250, 246, 236, 0.38);
@@ -74,24 +81,39 @@
   transition: background-color 140ms ease, color 140ms ease, border-color 140ms ease;
 }
 
-.check { font-size: 22rpx; }
-
-.info-button {
-  position: absolute;
-  top: 10rpx;
-  right: 10rpx;
+.choice-label {
   display: flex;
-  width: 44rpx;
-  height: 44rpx;
+  min-width: 0;
   align-items: center;
   justify-content: center;
-  border: 1rpx solid currentColor;
-  border-radius: 50%;
-  background: transparent;
-  color: var(--ink-secondary);
-  font-family: Georgia, serif;
-  font-size: 22rpx;
+  gap: 8rpx;
 }
+
+.choice-hint {
+  color: var(--ink-secondary);
+  font-size: 20rpx;
+  line-height: 1.25;
+}
+
+.aroma-choice.is-selected .choice-hint {
+  color: rgba(250, 246, 236, 0.78);
+}
+
+.check { font-size: 22rpx; }
 
 .validation-summary { margin-top: 28rpx; }
 
+@media (max-width: 340px) {
+  .taste-head > text:first-child,
+  .taste-name {
+    width: 68rpx;
+    flex-basis: 68rpx;
+  }
+
+  .choice-grid { gap: 12rpx; }
+  .choice {
+    width: calc(50% - 6rpx);
+    flex-basis: calc(50% - 6rpx);
+    font-size: 26rpx;
+  }
+}
