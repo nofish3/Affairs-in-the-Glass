@@ -1,40 +1,17 @@
 .search-illustration {
   position: relative;
-  height: 250rpx;
-  margin: 42rpx 0 28rpx;
-}
-
-.search-glass {
-  position: absolute;
-  right: 110rpx;
-  bottom: 20rpx;
-  width: 170rpx;
-  height: 200rpx;
+  height: 284rpx;
+  margin: 34rpx -40rpx 24rpx;
   overflow: hidden;
-  border: 4rpx solid var(--green-primary);
-  border-radius: 10rpx 10rpx 56rpx 56rpx;
-  transform: rotate(4deg);
 }
 
-.search-liquid {
+.search-image {
   position: absolute;
-  right: 0;
   bottom: 0;
-  left: 0;
-  height: 94rpx;
-  border-top: 3rpx solid var(--wine-accent);
-  background: rgba(164, 123, 61, 0.42);
+  left: 20rpx;
+  width: 730rpx;
+  height: auto;
 }
-
-.search-line {
-  position: absolute;
-  height: 3rpx;
-  background: var(--wine-accent);
-  transform-origin: left;
-}
-
-.search-line-a { left: 90rpx; bottom: 92rpx; width: 250rpx; transform: rotate(-18deg); }
-.search-line-b { left: 130rpx; bottom: 42rpx; width: 180rpx; transform: rotate(-9deg); opacity: 0.55; }
 
 .input-section { padding-top: 8rpx; }
 .recognition-form { border-top: 2rpx solid var(--ink-primary); }
